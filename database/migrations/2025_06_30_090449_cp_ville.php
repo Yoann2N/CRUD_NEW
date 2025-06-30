@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('Ville', function (Blueprint $table) {
             $table->id();
-            $table->string('code_postal', 5)->nullable(); // ou integer()
-            $table->string('ville'); // retiré unique()
+            $table->string('code_postal', 10); 
+            $table->string('ville'); 
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent()->onUpdateCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdateCurrent();
+            $table->unique(['code_postal', 'ville']);
             
         });
     }
