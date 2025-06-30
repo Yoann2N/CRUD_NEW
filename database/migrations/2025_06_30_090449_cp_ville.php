@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('Ville', function (Blueprint $table) {
             $table->id();
             $table->string('code_postal', 10); 
-            $table->string('ville'); 
+            $table->string('ville',70); 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdateCurrent();
             $table->unique(['code_postal', 'ville']);
