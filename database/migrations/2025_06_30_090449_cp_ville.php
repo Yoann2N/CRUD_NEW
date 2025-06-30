@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('code_postal', 5)->nullable(); // ou integer()
             $table->string('ville'); // retiré unique()
-            $table->timestamps(); // plus propre pour created_at et updated_at
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->onUpdateCurrent();
+            
         });
     }
 
