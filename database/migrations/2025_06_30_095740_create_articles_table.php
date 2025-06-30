@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cp_villes', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('code_postal', 10); 
-            $table->string('ville',70); 
+            $table->string('nom', 100);
+            $table->string('description', 255);
+            $table->decimal('prix', 8, 2);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdateCurrent();
-            $table->unique(['code_postal', 'ville']);
             
         });
     }
@@ -27,7 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('articles');
     }
 };
-
